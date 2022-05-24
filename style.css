@@ -1,0 +1,39 @@
+body {
+    display: grid;
+    grid-template-columns: 1 auto;
+    grid-template-rows: 1 auto;
+    grid-template-areas:
+                        "sidebar header"
+                        "sidebar content";
+}
+
+.sidebar {
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.sidebar > div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.header {
+    grid-area: header;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.header > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header .header-bottom-right {
+    display: flex;
+}
+.content {
+    grid-area: content;
+}
