@@ -8,6 +8,8 @@ body {
 }
 
 .sidebar {
+    padding: 10px;
+    background-color: skyblue;
     grid-area: sidebar;
     display: flex;
     flex-direction: column;
@@ -20,10 +22,22 @@ body {
     gap: 10px;
 }
 
+.sidebar .dashboard {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.sidebar .links {
+    font-size: 24px;
+    font-weight: 600;
+}
+
 .header {
+    padding: 10px;
     grid-area: header;
     display: grid;
     grid-template-rows: 1fr 1fr;
+
 }
 
 .header > div {
@@ -31,9 +45,132 @@ body {
     justify-content: space-between;
 }
 
-.header .header-bottom-right {
-    display: flex;
+.header-top, .header-bottom {
+    flex: 1 1 auto;
 }
+
+.header-top-left .search-bar {
+    height: 28px;
+    width: 50rem;
+    background-color: darkgrey;
+    border : 0px;
+    border-radius: 14px;
+}
+
+.header .header-bottom-left {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr auto auto;
+    grid-template-areas:
+                        "profile-pic greeting ."
+                        "profile-pic username usertag";
+    gap: 5px;
+}
+
+.header-bottom-left .profile-pic{
+    grid-area: profile-pic;
+}
+
+.header-bottom-left .greeting{
+    grid-area: greeting;    
+}
+
+.header-bottom-left .username{
+    grid-area: username;    
+}
+
+.header-bottom-left .usertag{
+    grid-area: usertag;    
+}
+
+.header-bottom-right {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 20px;
+}
+
+.header-bottom-right button {
+    width: 60px;
+    height: 20px;
+    border: 0px;
+    border-radius: 10px;
+    background-color: skyblue;
+}
+
 .content {
+    padding: 10px;
+    background-color: aliceblue;
     grid-area: content;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas:
+                        "projects announcements"
+                        "projects trending";
+    gap: 20px;
+}
+
+.content > div {
+    padding: 20px;
+}
+
+.content .projects-header,
+.content .announcements-header,
+.content .trending-header {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.content .project,
+.content .announcements,
+.content .trending {
+    padding: 20px;
+    background-color: white;
+    box-shadow: 2px 2px darkgrey;
+    border-radius: 10px;
+}
+
+.content > .projects {
+    grid-area: projects;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr repeat(3, 5fr);
+    grid-template-areas:
+                        "projects-header projects-header";
+    gap: 20px;
+}
+
+.content .projects-header {
+    grid-area: projects-header;
+}
+
+.content .project {
+    border-left: 6px solid orange;
+}
+
+.content .project-title {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.content .project-info {
+    font-size: 20px;
+}
+
+.content > .trending,
+.content > .announcements {
+    grid-area: announcements;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.content .announcement-title {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.content > .trending {
+    grid-area: trending;
 }
